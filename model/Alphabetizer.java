@@ -1,15 +1,23 @@
 package model;
 
-public class Alphabetizer implements CircularShiftPipe {
-    public void read() {
-        // read input
+public class Alphabetizer extends Filter implements Pipe {
+
+    @Override
+    public void read(String line) {
+        // TODO Auto-generated method stub
+        
     }
 
-    public void alphabetizer() { //transform
-
+    @Override
+    public void transform(String[] words) {
+        // TODO Auto-generated method stub
+        
     }
 
-    public void write() {
-        //write output
+    @Override
+    public void write(String[] words) {
+        // TODO Auto-generated method stub
+        
     }
+
 }

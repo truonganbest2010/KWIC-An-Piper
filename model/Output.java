@@ -1,8 +1,9 @@
 package model;
 
-public class Output implements AlphabetizerPipe {
-     public void read() {
-         //read input
-     }
+public class Output {
+
+    public String write() {
+        return "abc";
+    }
 
 }
