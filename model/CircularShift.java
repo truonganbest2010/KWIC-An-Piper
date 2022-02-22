@@ -2,9 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+import java.util.Arrays;
+
 public class CircularShift extends Filter implements Pipe {
 
     Alphabetizer output = new Alphabetizer();
+    ArrayList<String> linesList = new ArrayList<String>();
 
     @Override
     public void read(String[] lines) {
@@ -14,6 +17,8 @@ public class CircularShift extends Filter implements Pipe {
                 transform(words);
             }
         }
+
+        write("abc");
 
     }
 
@@ -28,30 +33,25 @@ public class CircularShift extends Filter implements Pipe {
         }
         words[words.length - 1] = first;
 
-        // recombine into array of lines
+        // recombine into lines
         String wordString = "";
         for (int j = 0; j < words.length - 1; j++) {
             wordString += words[j] + " ";
         }
         wordString += words[words.length - 1];
 
-        write(wordString);
+        linesList.add(wordString);
 
     }
 
     @Override
     public void write(String wordString) {
-        ArrayList<String> linesList = new ArrayList<String>();
-        linesList.add(wordString);
+
+        System.out.println("Sorted : " + Arrays.toString(linesList.toArray()));
 
         String[] lines = linesList.toArray(new String[0]);
 
-       /*for (int i = 0; i < lines.length; i++) {
-            System.out.println("new line: " + lines[i]);
-        }*/
-       // System.out.print("\n");
-
-       output.read(lines);
+        output.read(lines);
     }
 
 }
