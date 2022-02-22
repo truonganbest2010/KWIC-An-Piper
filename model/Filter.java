@@ -7,6 +7,6 @@ public abstract class Filter {
 
     public abstract void transform(String[] input);
 
-    public abstract void write(String output);
+    public abstract void write(String[] output);
     
 }

@@ -18,7 +18,7 @@ public class CircularShift extends Filter implements Pipe {
             }
         }
 
-        write("abc");
+        write(lines);
 
     }
 
@@ -45,13 +45,13 @@ public class CircularShift extends Filter implements Pipe {
     }
 
     @Override
-    public void write(String wordString) {
+    public void write(String[] lines) {
 
-        System.out.println("Sorted : " + Arrays.toString(linesList.toArray()));
+        //System.out.println("Sorted : " + Arrays.toString(linesList.toArray()));
 
-        String[] lines = linesList.toArray(new String[0]);
+        String[] newLines = linesList.toArray(new String[0]);
 
-        output.read(lines);
+        output.read(newLines);
     }
 
 }
