@@ -2,8 +2,8 @@ package model;
 
 public class Output {
 
-    public String write() {
-        return "abc";
+    public String read(String[] lines) {
+        return "list of strings?";
     }
 
 }

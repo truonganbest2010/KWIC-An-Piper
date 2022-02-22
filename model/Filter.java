@@ -5,8 +5,8 @@ public abstract class Filter {
     public Pipe output;
     public boolean running;
 
-    public abstract void transform(String[] words);
+    public abstract void transform(String[] input);
 
-    public abstract void write(String[] words);
+    public abstract void write(String output);
     
 }

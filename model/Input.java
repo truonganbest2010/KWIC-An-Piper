@@ -4,11 +4,9 @@ public class Input {
     CircularShift output = new CircularShift();
 
     public void write(String userInput) {
+        // split input by new line
         String[] lines = userInput.split("\\r?\\n|\\r");
-        // for each line entered by user, read
-        for (int i = 0; i < lines.length; i++) {
-            output.read(lines[i]);
-        }
+        output.read(lines);
     }
 
 }
