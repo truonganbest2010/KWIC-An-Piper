@@ -1,6 +1,9 @@
 package model;
 
 import java.util.*;
+
+import view.KWIC;
+
 /* Alphabetizer filter: outputs a list of all circular shifts of all lines in ascending alphabetical order
 where a<A<b<B..z<Z*/
 public class Alphabetizer extends Filter implements Pipe {
@@ -9,26 +12,26 @@ public class Alphabetizer extends Filter implements Pipe {
 
     @Override
     // read input sent through pipe
-    public void read(String[] lines) {
+    public void read(String[] lines, KWIC panel) {
         // call transform()
-        transform(lines);
+        transform(lines, panel);
     }
 
     @Override
     // transform data by ordering it
-    public void transform(String[] lines) {
+    public void transform(String[] lines, KWIC panel) {
 
         // sort list by case_insensitive order
         Arrays.sort(lines, String.CASE_INSENSITIVE_ORDER);
 
         // call write()
-        write(lines);
+        write(lines, panel);
     }
 
     @Override
-    public void write(String[] lines) {
+    public void write(String[] lines, KWIC panel) {
         // send through pipe to next filter
-        output.read(lines);
+        output.read(lines, panel);
     }
 
 }
