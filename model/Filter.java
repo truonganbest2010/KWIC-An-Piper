@@ -1,12 +1,12 @@
 package model;
 
+// Filter super class
 public abstract class Filter {
-    public Pipe input;
-    public Pipe output;
-    public boolean running;
 
+    // perform filter transormation
     public abstract void transform(String[] input);
 
+    // write resulting filter output
     public abstract void write(String[] output);
     
 }
