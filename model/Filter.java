@@ -3,7 +3,7 @@ package model;
 import view.KWIC;
 
 // Filter super class
-public abstract class Filter {
+public abstract class Filter implements Pipe {
 
     // perform filter transormation
     public abstract void transform(String[] input, KWIC panel);

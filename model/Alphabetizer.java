@@ -6,7 +6,7 @@ import view.KWIC;
 
 /* Alphabetizer filter: outputs a list of all circular shifts of all lines in ascending alphabetical order
 where a<A<b<B..z<Z*/
-public class Alphabetizer extends Filter implements Pipe {
+public class Alphabetizer extends Filter {
     // Create object to pass data through pipe to Output filter
     Output output = new Output();
 

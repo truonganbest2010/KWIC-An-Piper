@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import view.KWIC;
 
 /* Circular Shift filter: repeatedly removes the first word and appends it at the end of the line.*/
-public class CircularShift extends Filter implements Pipe {
+public class CircularShift extends Filter {
 
     // Create object to pass data through pipe to Alphabetizer filter
     Alphabetizer output = new Alphabetizer();
