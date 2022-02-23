@@ -12,6 +12,7 @@ public class Output {
             // System.out.println(lines[i]);
             outGUI += lines[i] + "\n";
         }
+        panel.getTextOutputArea().setText("");
         panel.getTextOutputArea().setText(outGUI);
     }
 

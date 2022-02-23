@@ -1,18 +1,16 @@
 package controller;
 
 import java.awt.event.*;
-import java.util.ArrayList;
 
 import model.Input;
-import model.Output;
 import view.KWIC;
 
 public class ButtonClickListener implements ActionListener {
 
     private KWIC panel;
     // Input and Output filters
-    public Input input = new Input();
-    public Output output = new Output();
+    public Input input;
+    private String userInput = "";
 
     public ButtonClickListener(KWIC panel) {
         this.panel = panel;
@@ -23,13 +21,13 @@ public class ButtonClickListener implements ActionListener {
         var button = e.getSource();
         if (button == panel.getComputeButton()) {
             // get user input from GUI
-            String userInput = panel.getTextInputArea().getText();
+            userInput = panel.getTextInputArea().getText();
             // call first filter to begin processing user input
+            input = new Input();
             input.write(userInput, panel);
-            // String output = output.read();
 
-            // panel.getTextOutputArea().setText(output);
         } else if (button == panel.getResetInputButton()) {
+            userInput = "";
             panel.getTextInputArea().setText("");
         } else if (button == panel.getResetOutputButton()) {
             panel.getTextOutputArea().setText("");
