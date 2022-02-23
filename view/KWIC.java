@@ -67,6 +67,8 @@ public class KWIC {
         textInputArea.setPreferredSize(new Dimension(200, 100));
         textInputArea.setText("");
         textInputArea.setBorder(border);
+        textInputArea.setLineWrap(true);
+
         textAreaPanel.add(textInputArea);
         // ---//
         textOutputArea = new JTextArea();
@@ -74,7 +76,10 @@ public class KWIC {
         textOutputArea.setPreferredSize(new Dimension(200, 100));
         textOutputArea.setBorder(border);
         textOutputArea.setEditable(false);
+        textOutputArea.setLineWrap(true);
+
         textAreaPanel.add(textOutputArea);
+
         cp.add(BorderLayout.CENTER, textAreaPanel);
         // ================//
         JPanel buttonPanel = new JPanel();

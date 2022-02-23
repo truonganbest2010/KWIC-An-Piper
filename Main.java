@@ -10,7 +10,7 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("KWIC - An Truong & Piper Backer");
         window.setPreferredSize(new Dimension(640, 800));
-        window.setResizable(false);
+        // window.setResizable(false);
         var menu = new KWIC(window);
         menu.init();
 
