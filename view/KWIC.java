@@ -16,101 +16,129 @@ import java.awt.*;
 public class KWIC {
 
     private JFrame window;
+
+    /** textareas */
     private JTextArea textInputArea;
     private JTextArea textOutputArea;
 
+    /** buttons */
     private JButton resetInputButton = new JButton("Reset Input");
     private JButton computeButton = new JButton("Compute");
     private JButton resetOutputButton = new JButton("Reset Output");
 
-    public KWIC(JFrame window) {
+    public KWIC(JFrame window) { /** constructor */
         this.window = window;
     }
 
-    public void init() {
+    public void init() { /** initialize program's GUI */
         Container cp = window.getContentPane();
+        // ================//
 
-        JPanel namePanel = new JPanel(new GridLayout(4, 1));
-        JLabel pname = new JLabel();
-        pname.setText("Key Word In Context System\r\n");
+        /** create top panel where program label locates */
+        JPanel topPanel = new JPanel(new GridLayout(5, 1));
+
+        /** program name label */
+        JLabel pname = new JLabel("Key Word In Context System");
         pname.setFont(new Font("Courier New", Font.BOLD, 32));
         pname.setForeground(Color.blue);
         JPanel pnamePanel = new JPanel();
         pnamePanel.add(pname);
-        namePanel.add(pnamePanel);
+        topPanel.add(pnamePanel);
 
-        JLabel sname = new JLabel();
-        sname.setText("University of Central Oklahoma\r\n");
+        /** school/university label */
+        JLabel sname = new JLabel("University of Central Oklahoma");
         sname.setFont(new Font("Courier New", Font.BOLD, 32));
         JPanel snamePanel = new JPanel();
         snamePanel.add(sname);
-        namePanel.add(snamePanel);
+        topPanel.add(snamePanel);
 
-        JLabel gname = new JLabel();
-        gname.setText("Group 5: (An Truong & Piper Backer)");
+        /** group no. and members label */
+        JLabel gname = new JLabel("Group 5: (An Truong & Piper Backer)");
         JPanel gnamePanel = new JPanel();
         gnamePanel.add(gname);
-        namePanel.add(gnamePanel);
+        topPanel.add(gnamePanel);
 
+        /** input caution label */
+        JTextArea cautionText = new JTextArea(
+                "Please be aware only alphabet input is accepted. Any other input (e.g digits, symbol, etc.) will be ignored in processing");
+        cautionText.setMargin(new Insets(10, 10, 10, 10));
+        cautionText.setLineWrap(true);
+        cautionText.setWrapStyleWord(true);
+        cautionText.setEditable(false);
+        cautionText.setBackground(Color.ORANGE);
+        topPanel.add(cautionText);
+
+        /** i/o label */
         JPanel ioPanel = new JPanel(new GridLayout(1, 2));
         ioPanel.add(new JLabel("Input", SwingConstants.CENTER));
         ioPanel.add(new JLabel("Output", SwingConstants.CENTER));
-        namePanel.add(ioPanel);
-        cp.add(BorderLayout.NORTH, namePanel);
+        topPanel.add(ioPanel);
+
+        cp.add(BorderLayout.NORTH, topPanel);
         // ================//
 
+        /** create i/o textarea where program input and output locate */
         JPanel textAreaPanel = new JPanel(new GridLayout(1, 2));
         Border border = BorderFactory.createLineBorder(Color.BLACK);
         border = BorderFactory.createStrokeBorder(new BasicStroke(6.0f));
 
+        /** text input area */
         textInputArea = new JTextArea();
         textInputArea.setPreferredSize(new Dimension(200, 100));
         textInputArea.setText("");
         textInputArea.setBorder(border);
+        textInputArea
+                .setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         textInputArea.setLineWrap(true);
-
+        textInputArea.setWrapStyleWord(true);
         textAreaPanel.add(textInputArea);
-        // ---//
+
+        /** text output area */
         textOutputArea = new JTextArea();
         textOutputArea.setText("");
         textOutputArea.setPreferredSize(new Dimension(200, 100));
         textOutputArea.setBorder(border);
+        textOutputArea
+                .setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
         textOutputArea.setEditable(false);
         textOutputArea.setLineWrap(true);
-
+        textOutputArea.setWrapStyleWord(true);
         textAreaPanel.add(textOutputArea);
 
         cp.add(BorderLayout.CENTER, textAreaPanel);
         // ================//
+
+        /** create button panel */
         JPanel buttonPanel = new JPanel();
-        buttonPanel.add(resetInputButton);
-        buttonPanel.add(computeButton);
-        buttonPanel.add(resetOutputButton);
+        buttonPanel.add(resetInputButton); /** reset input */
+        buttonPanel.add(computeButton); /** compute */
+        buttonPanel.add(resetOutputButton); /** reset output */
         cp.add(BorderLayout.SOUTH, buttonPanel);
 
+        /** add action listeners for buttons */
         ButtonClickListener buttonClickListener = new ButtonClickListener(this);
         resetInputButton.addActionListener(buttonClickListener);
         computeButton.addActionListener(buttonClickListener);
         resetOutputButton.addActionListener(buttonClickListener);
     }
 
-    public JButton getResetInputButton() {
+    public JButton getResetInputButton() { /** get input button */
         return resetInputButton;
     }
 
-    public JButton getComputeButton() {
+    public JButton getComputeButton() { /** get compute button */
         return computeButton;
     }
 
-    public JButton getResetOutputButton() {
+    public JButton getResetOutputButton() { /** get output button */
         return resetOutputButton;
     }
 
-    public JTextArea getTextInputArea() {
+    public JTextArea getTextInputArea() { /** get text input area */
         return textInputArea;
     }
 
-    public JTextArea getTextOutputArea() {
+    public JTextArea getTextOutputArea() { /** get text ouput area */
         return textOutputArea;
     }
 
