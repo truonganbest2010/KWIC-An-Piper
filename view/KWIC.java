@@ -1,6 +1,5 @@
 package view;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,7 +7,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 
 import controller.ButtonClickListener;
 
@@ -89,15 +87,6 @@ public class KWIC {
         JScrollPane scrollPane1 = new JScrollPane(textInputArea);
         scrollPane1.setBounds(3, 3, 400, 400);
 
-        // textInputArea.setPreferredSize(new Dimension(200, 100));
-        // textInputArea.setText("");
-        // textInputArea.setBorder(border);
-        // textInputArea
-        // .setBorder(BorderFactory.createCompoundBorder(border,
-        // BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        // textInputArea.setLineWrap(true);
-        // textInputArea.setWrapStyleWord(true);
-
         /** text output area */
         textOutputArea = new JTextArea();
         textOutputArea.setBounds(5, 5, 100, 200);
@@ -105,15 +94,6 @@ public class KWIC {
         JScrollPane scrollPane2 = new JScrollPane(textOutputArea);
         scrollPane2.setBounds(3, 3, 400, 400);
 
-        // textOutputArea.setText("");
-        // textOutputArea.setPreferredSize(new Dimension(200, 100));
-        // textOutputArea.setBorder(border);
-        // textOutputArea
-        // .setBorder(BorderFactory.createCompoundBorder(border,
-        // BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        // textOutputArea.setEditable(false);
-        // textOutputArea.setLineWrap(true);
-        // textOutputArea.setWrapStyleWord(true);
         cont.add(scrollPane1);
         cont.add(scrollPane2);
         cont.setLayout(new GridLayout(1, 2));
