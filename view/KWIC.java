@@ -5,6 +5,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
@@ -78,34 +79,46 @@ public class KWIC {
         // ================//
 
         /** create i/o textarea where program input and output locate */
-        JPanel textAreaPanel = new JPanel(new GridLayout(1, 2));
-        Border border = BorderFactory.createLineBorder(Color.BLACK);
-        border = BorderFactory.createStrokeBorder(new BasicStroke(6.0f));
 
         /** text input area */
+        Container cont = new Container();
+
         textInputArea = new JTextArea();
-        textInputArea.setPreferredSize(new Dimension(200, 100));
-        textInputArea.setText("");
-        textInputArea.setBorder(border);
-        textInputArea
-                .setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        textInputArea.setLineWrap(true);
-        textInputArea.setWrapStyleWord(true);
-        textAreaPanel.add(textInputArea);
+        textInputArea.setBounds(5, 5, 100, 200);
+
+        JScrollPane scrollPane1 = new JScrollPane(textInputArea);
+        scrollPane1.setBounds(3, 3, 400, 400);
+
+        // textInputArea.setPreferredSize(new Dimension(200, 100));
+        // textInputArea.setText("");
+        // textInputArea.setBorder(border);
+        // textInputArea
+        // .setBorder(BorderFactory.createCompoundBorder(border,
+        // BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        // textInputArea.setLineWrap(true);
+        // textInputArea.setWrapStyleWord(true);
 
         /** text output area */
         textOutputArea = new JTextArea();
-        textOutputArea.setText("");
-        textOutputArea.setPreferredSize(new Dimension(200, 100));
-        textOutputArea.setBorder(border);
-        textOutputArea
-                .setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(5, 5, 5, 5)));
-        textOutputArea.setEditable(false);
-        textOutputArea.setLineWrap(true);
-        textOutputArea.setWrapStyleWord(true);
-        textAreaPanel.add(textOutputArea);
+        textOutputArea.setBounds(5, 5, 100, 200);
 
-        cp.add(BorderLayout.CENTER, textAreaPanel);
+        JScrollPane scrollPane2 = new JScrollPane(textOutputArea);
+        scrollPane2.setBounds(3, 3, 400, 400);
+
+        // textOutputArea.setText("");
+        // textOutputArea.setPreferredSize(new Dimension(200, 100));
+        // textOutputArea.setBorder(border);
+        // textOutputArea
+        // .setBorder(BorderFactory.createCompoundBorder(border,
+        // BorderFactory.createEmptyBorder(5, 5, 5, 5)));
+        // textOutputArea.setEditable(false);
+        // textOutputArea.setLineWrap(true);
+        // textOutputArea.setWrapStyleWord(true);
+        cont.add(scrollPane1);
+        cont.add(scrollPane2);
+        cont.setLayout(new GridLayout(1, 2));
+
+        window.add(cont);
         // ================//
 
         /** create button panel */
@@ -122,19 +135,23 @@ public class KWIC {
         resetOutputButton.addActionListener(buttonClickListener);
     }
 
-    public JButton getResetInputButton() { /** get input button */
+    public JButton getResetInputButton() {
+        /** get input button */
         return resetInputButton;
     }
 
-    public JButton getComputeButton() { /** get compute button */
+    public JButton getComputeButton() {
+        /** get compute button */
         return computeButton;
     }
 
-    public JButton getResetOutputButton() { /** get output button */
+    public JButton getResetOutputButton() {
+        /** get output button */
         return resetOutputButton;
     }
 
-    public JTextArea getTextInputArea() { /** get text input area */
+    public JTextArea getTextInputArea() {
+        /** get text input area */
         return textInputArea;
     }
 

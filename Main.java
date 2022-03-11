@@ -6,6 +6,7 @@ import view.KWIC;
 
 public class Main {
     public static void main(String[] args) {
+
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setTitle("KWIC - An Truong & Piper Backer");
@@ -17,5 +18,6 @@ public class Main {
 
         window.pack();
         window.setVisible(true);
+
     }
 }
