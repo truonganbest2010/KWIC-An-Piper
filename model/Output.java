@@ -10,7 +10,7 @@ public class Output {
         String outGUI = "";
         for (int i = 0; i < lines.length; i++) {
             // System.out.println(lines[i]);
-            outGUI += lines[i] + "\n";
+            outGUI += (i+1) + ". " + lines[i] + "\n\n";
         }
         panel.getTextOutputArea().setText("");
         panel.getTextOutputArea().setText(outGUI);
