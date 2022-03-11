@@ -9,9 +9,9 @@ where a<A<b<B..z<Z*/
 public class Alphabetizer extends Filter {
 
     // Create object to pass data through pipe to Output filter
-    //Output output = new Output();
+    Output output = new Output();
 
-    CircularShift output = new CircularShift();
+    // CircularShift output = new CircularShift();
 
     @Override
     // read input sent through pipe
