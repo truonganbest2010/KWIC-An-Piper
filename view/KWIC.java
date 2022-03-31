@@ -90,6 +90,8 @@ public class KWIC {
         /** text output area */
         textOutputArea = new JTextArea();
         textOutputArea.setBounds(5, 5, 100, 200);
+        textOutputArea.setEditable(false);
+
 
         JScrollPane scrollPane2 = new JScrollPane(textOutputArea);
         scrollPane2.setBounds(3, 3, 400, 400);
