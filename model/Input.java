@@ -6,14 +6,13 @@ import view.KWIC;
 public class Input {
 
     // Create object to pass data through pipe to Circular Shift
-    //CircularShift output = new CircularShift();
+    CircularShift output = new CircularShift();
 
-    Alphabetizer output = new Alphabetizer();
+    // Alphabetizer output = new Alphabetizer();
 
     public void write(String userInput, KWIC panel) {
         // Filter out all symbols aside from alphabet characters and spaces
-        userInput = userInput.replaceAll(
-            "[^a-zA-Z\\s]", "");
+        userInput = userInput.replaceAll("[^a-zA-Z\\s]", "");
 
         // split input into array by new line
         String[] lines = userInput.split("\\r?\\n|\\r");
